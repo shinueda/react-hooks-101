@@ -18,11 +18,13 @@ const App = () => {
   const doubled = () => setCount(count * 2)
 
   // 3の倍数のときだけ3で割る
-  const isThree = () => {
-    if ((count % 3) === 0) {
-      setCount(count / 3)
+  const isThree = () => setCount(prevCount => {
+    if (prevCount % 3 === 0) {
+      return prevCount / 3
+    } else {
+      return prevCount
     }
-  }
+  })
 
   return (
     <>
